@@ -11,16 +11,86 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Profile.belongsTo(models.User)
+    }
+    get title() {
+      if (this.gender === 'male') {
+        return this.name = `Mr.${this.name}`
+      } else if (this.gender === 'female') {
+        return this.name = `Ms.${this.name}`
+      }
     }
   }
   Profile.init({
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    dateOfBirth: DataTypes.INTEGER,
-    phone: DataTypes.STRING,
-    gender: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `name cant empty`
+        },
+        notNull: {
+          msg: `name cant null`
+        },
+        len: {
+          args: [3],
+          msg: `name minimal 3 karakter`
+        }
+      }
+    },
+    dateOfBirth: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `dateOfBirth cant empty`
+        },
+        notNull: {
+          msg: `dateOfBirth cant null`
+        },
+      }
+    },
+    phone: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `phone cant empty`
+        },
+        notNull: {
+          msg: `phone cant null`
+        },
+        len: {
+          args: [10],
+          msg: `phone minimal 10 karakter`
+        }
+      }
+    },
+    gender: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `gender cant empty`
+        },
+        notNull: {
+          msg: `gender cant null`
+        },
+      }
+    },
     UserId: DataTypes.INTEGER,
-    background: DataTypes.STRING
+    background: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `background cant empty`
+        },
+        notNull: {
+          msg: `background cant null`
+        },
+      }
+    }
   }, {
     sequelize,
     modelName: 'Profile',
