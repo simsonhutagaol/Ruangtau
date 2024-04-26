@@ -5,7 +5,6 @@ const { Op, fn, where } = require('sequelize')
 const sequelize = require('sequelize');
 const category = require('../models/category');
 const formatDOB = require('../helper/time');
-const course = require('../models/course');
 
 class ControllerAdmin {
     static async renderHome(req, res) {
