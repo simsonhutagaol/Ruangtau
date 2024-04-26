@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
         through: models.UserCourse,
       })
     }
+    get courseDuration() {
+      return this.duration = `${this.duration} Minutes`
+    }
   }
   Course.init({
     name: {
@@ -60,7 +63,7 @@ module.exports = (sequelize, DataTypes) => {
         notNull: {
           msg: `duration cant null`
         },
-        len: {
+        min: {
           args: [10],
           msg: `duration minimal 10 menit`
         }

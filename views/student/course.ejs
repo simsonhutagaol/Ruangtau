@@ -1,137 +1,98 @@
 <%- include('./partials/header', { title: 'Ruang Tau' }) %>
 
     <h1>MY COURSE</h1>
-
+    <br>
     <section>
         <div class="relative overflow-x-auto">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Product name
+                            No
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Color
+                            Course
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Category
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Price
+                            Action
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Apple MacBook Pro 17"
-                        </th>
-                        <td class="px-6 py-4">
-                            Silver
-                        </td>
-                        <td class="px-6 py-4">
-                            Laptop
-                        </td>
-                        <td class="px-6 py-4">
-                            $2999
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Microsoft Surface Pro
-                        </th>
-                        <td class="px-6 py-4">
-                            White
-                        </td>
-                        <td class="px-6 py-4">
-                            Laptop PC
-                        </td>
-                        <td class="px-6 py-4">
-                            $1999
-                        </td>
-                    </tr>
-                    <tr class="bg-white dark:bg-gray-800">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Magic Mouse 2
-                        </th>
-                        <td class="px-6 py-4">
-                            Black
-                        </td>
-                        <td class="px-6 py-4">
-                            Accessories
-                        </td>
-                        <td class="px-6 py-4">
-                            $99
-                        </td>
-                    </tr>
+                    <% myCourse.forEach((el,index)=> {%>
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <%= index+1 %>
+                            </th>
+                            <td class="px-6 py-4">
+                                <%= el.Course.name %>
+                            </td>
+                            <td class="px-6 py-4">
+                                <%= el.Course.Category.name %>
+                            </td>
+                            <td class="px-6 py-4">
+                                <a href="/student/course/<%= el.Course.id %>/detail">
+                                    <button type="button"
+                                        class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Open</button>
+                                </a>
+                                <a href="/student/course/<%= el.Course.id %>/unsubscribe">
+                                    <button type="button"
+                                        class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900"
+                                        onclick="return confirm('yakin mau di hapus?');">Unsubscribe</button>
+                                </a>
+                            </td>
+                        </tr>
+                        <%}); %>
                 </tbody>
             </table>
         </div>
     </section>
-
+    <br><br><br>
     <section>
-        <h1> Course Yang Belum di Miliki</h1>
+        <h1>List Course </h1><br>
         <div class="relative overflow-x-auto">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Product name
+                            No
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Color
+                            Course
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Category
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Price
+                            Action
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Apple MacBook Pro 17"
-                        </th>
-                        <td class="px-6 py-4">
-                            Silver
-                        </td>
-                        <td class="px-6 py-4">
-                            Laptop
-                        </td>
-                        <td class="px-6 py-4">
-                            $2999
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Microsoft Surface Pro
-                        </th>
-                        <td class="px-6 py-4">
-                            White
-                        </td>
-                        <td class="px-6 py-4">
-                            Laptop PC
-                        </td>
-                        <td class="px-6 py-4">
-                            $1999
-                        </td>
-                    </tr>
-                    <tr class="bg-white dark:bg-gray-800">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Magic Mouse 2
-                        </th>
-                        <td class="px-6 py-4">
-                            Black
-                        </td>
-                        <td class="px-6 py-4">
-                            Accessories
-                        </td>
-                        <td class="px-6 py-4">
-                            $99
-                        </td>
-                    </tr>
+                    <% listCourse.forEach((el,index)=> {%>
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <%= index+1 %>
+                            </th>
+                            <td class="px-6 py-4">
+                                <%= el.name %>
+                            </td>
+                            <td class="px-6 py-4">
+                                <%= el.Category.name %>
+                            </td>
+                            <td class="px-6 py-4">
+                                <a href="/student/course/<%= el.id %>/subscribe">
+                                    <button type="button"
+                                        class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Subscribe</button>
+                                </a>
+                            </td>
+                        </tr>
+                        <%}); %>
                 </tbody>
             </table>
         </div>
