@@ -40,26 +40,27 @@
     <div class="container">
         <h2 class="mt-4">Add Course</h2>
         <br>
-        <form action="/admin/course/add" method="post">
+        <form action="/admin/course/<%= course.id %>/edit" method="post">
 
             <div class="mb-3">
                 <label for="name" class="form-label">Name:</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <input type="text" class="form-control" id="name" name="name" value="<%= course.name %>">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Deskripsi:</label>
-                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                <textarea class="form-control" id="description" name="description"
+                    rows="3"><%= course.description %></textarea>
             </div>
             <div class="mb-3">
                 <label for="duration" class="form-label">Duration:</label>
-                <input type="number" class="form-control" id="duration" name="duration">
+                <input type="number" class="form-control" id="duration" name="duration" value="<%= course.duration %>">
             </div>
             <div class="mb-3">
                 <label for="CategoryId" class="form-label">Category:</label>
                 <select class="form-select" id="CategoryId" name="CategoryId">
-                    <option value="" selected disabled> Choose Category ...</option>
+                    <option value="" disabled> Choose Category ...</option>
                     <% category.forEach(el=> {%>
-                        <option value="<%= el.id %>">
+                        <option value="<%= el.id %>" <% el.id===course.CategoryId?'selected':'' %>>
                             <%= el.name %>
                         </option>
                         <%}); %>
@@ -73,7 +74,10 @@
                     </p>
                     <% }) %>
                         <% } %>
-                            <button type="submit" class="btn btn-primary">Add</button>
+
+
+
+                            <button type="submit" class="btn btn-primary">Edit</button>
         </form><br>
         <a href="/admin/course">
             <button type="submit" class="btn btn-danger">Cancel</button>

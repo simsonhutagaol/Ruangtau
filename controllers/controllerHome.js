@@ -1,6 +1,8 @@
 const { where } = require('sequelize')
 const { Profile, Course, User, UserCourse, Category } = require('../models/index')
 const bcrypt = require('bcrypt')
+const svgCaptcha = require('svg-captcha');
+
 class ControllerHome {
     static async renderHome(req, res) {
         try {

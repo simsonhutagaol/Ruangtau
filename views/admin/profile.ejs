@@ -3,7 +3,9 @@
   <article class="rounded-xl border border-gray-700 bg-gray-800 p-4">
     <div class="flex items-center gap-4">
       <div>
-        <h3 class="text-lg font-medium text-white">Claire Mac</h3>
+        <h3 class="text-lg font-medium text-white">
+          <%= user.Profile.title %>
+        </h3>
 
         <div class="flow-root">
           <ul class="-m-1 flex flex-wrap">
@@ -28,7 +30,7 @@
         <a href="#" class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600">
           <strong class="font-medium text-white">Date of Birth</strong>
           <p class="mt-1 text-xs font-medium text-gray-300">
-            2001-09-03
+            <%= formatDOB(user.Profile.dateOfBirth) %>
           </p>
         </a>
       </li>
@@ -37,7 +39,7 @@
         <a href="#" class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600">
           <strong class="font-medium text-white">Phone</strong>
           <p class="mt-1 text-xs font-medium text-gray-300">
-            082365745698
+            <%= user.Profile.phone %>
           </p>
         </a>
       </li>
@@ -45,7 +47,7 @@
         <a href="#" class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600">
           <strong class="font-medium text-white">Gender</strong>
           <p class="mt-1 text-xs font-medium text-gray-300">
-            male
+            <%= user.Profile.gender %>
           </p>
         </a>
       </li>
@@ -53,7 +55,23 @@
         <a href="#" class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600">
           <strong class="font-medium text-white">Background</strong>
           <p class="mt-1 text-xs font-medium text-gray-300">
-            IT
+            <%= user.Profile.background %>
+          </p>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600">
+          <strong class="font-medium text-white">Email</strong>
+          <p class="mt-1 text-xs font-medium text-gray-300">
+            <%= user.email %>
+          </p>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600">
+          <strong class="font-medium text-white">Role</strong>
+          <p class="mt-1 text-xs font-medium text-gray-300">
+            <%= user.role %>
           </p>
         </a>
       </li>
