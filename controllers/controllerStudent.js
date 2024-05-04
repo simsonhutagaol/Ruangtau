@@ -37,8 +37,6 @@ class ControllerStudent {
                     }
                 ]
             })
-            // res.send(listCourse)
-            // res.send(user)
             res.render('student/course', { myCourse, listCourse })
         } catch (err) {
             console.log(err)
@@ -48,9 +46,7 @@ class ControllerStudent {
     static async renderDetailCourse(req, res) {
         try {
             const id = req.params.id
-            // console.log(id)
             const course = await Course.findOne({ where: { id: Number(id) } })
-            // res.send(course)
             res.render('admin/seeDetail', { course })
         } catch (error) {
             console.log(error)
@@ -77,7 +73,6 @@ class ControllerStudent {
         try {
             const UserId = req.session.user.id
             const courseId = req.params.id
-            // console.log(userId, courseId)
             await UserCourse.create({ UserId, CourseId: Number(courseId) })
             res.redirect('/student')
         } catch (error) {
@@ -85,7 +80,6 @@ class ControllerStudent {
             res.send(error.message)
         }
     }
-
     static async renderProfile(req, res) {
         try {
             const userId = req.session.user.id
@@ -95,7 +89,6 @@ class ControllerStudent {
                     id: Number(userId)
                 }
             })
-            // res.send(profile)
             res.render('student/profile', { user, formatDOB })
         } catch (err) {
             console.log(err)

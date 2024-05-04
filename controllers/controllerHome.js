@@ -11,7 +11,6 @@ class ControllerHome {
             console.log(err)
             res.send(err.message)
         }
-
     }
     static async renderRegister(req, res) {
         try {
@@ -66,7 +65,6 @@ class ControllerHome {
                 const error = `invalid email/password`
                 return res.redirect(`/login?error=${error}`)
             }
-
         } catch (err) {
             console.log(err)
             res.send(err.message)
@@ -75,7 +73,6 @@ class ControllerHome {
     static async handleLogout(req, res) {
         try {
             req.session.destroy()
-            // console.log(req.session)
             res.redirect('/')
         } catch (err) {
             console.log(err)

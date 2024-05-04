@@ -15,18 +15,14 @@ class ControllerAdmin {
             const totalCourse = course.length
             const totalCategory = category.length
             const totalStudent = student.length
-
-            // res.send(totalCourse)
             res.render('admin/dashboard', { totalCourse, totalCategory, totalStudent })
         } catch (err) {
             console.log(err)
             res.send(err.message)
         }
-
     }
     static async renderCategory(req, res) {
         try {
-            // const category = await Category.findAll()
             const category = await Category.findAll({
                 attributes: [
                     'id',
@@ -40,25 +36,21 @@ class ControllerAdmin {
                 group: ['Category.id', 'Category.name'],
                 order: [['count', 'DESC']]
             })
-            // let abc = cat
-            // res.send(cat)
             res.render('admin/category', { category })
         } catch (err) {
             console.log(err)
             res.send(err.message)
         }
-
     }
     static async renderCourse(req, res) {
         try {
             const { search } = req.query
-            // console.log(search){}
             let course = {}
             if (search) {
                 course = await Course.findAll({
                     where: {
                         name: {
-                            [sequelize.Op.iLike]: `%${search}%` // Replace 'searchTerm' with your actual search term
+                            [sequelize.Op.iLike]: `%${search}%`
                         }
                     }, include: Category,
                     order: [['name', 'ASC']]
@@ -71,7 +63,6 @@ class ControllerAdmin {
             console.log(err)
             res.send(err.message)
         }
-
     }
     static async renderProfile(req, res) {
         try {
@@ -82,13 +73,11 @@ class ControllerAdmin {
                     id: Number(userId)
                 }
             })
-            // res.send(profile)
             res.render('admin/profile', { user, formatDOB })
         } catch (err) {
             console.log(err)
             res.send(err.message)
         }
-
     }
     static async renderAddCategory(req, res) {
         try {
@@ -97,19 +86,16 @@ class ControllerAdmin {
             console.log(err)
             res.send(err.message)
         }
-
     }
     static async handleAddCategory(req, res) {
         try {
             const { name } = req.body
-            // console.log(name)
             await Category.create({ name })
             res.redirect('/admin/category')
         } catch (err) {
             console.log(err)
             res.send(err.message)
         }
-
     }
     static async renderAddCourse(req, res) {
         try {
@@ -123,7 +109,6 @@ class ControllerAdmin {
             console.log(err)
             res.send(err.message)
         }
-
     }
     static async handleAddCourse(req, res) {
         try {
@@ -139,7 +124,6 @@ class ControllerAdmin {
             }
             res.send(error.message)
         }
-
     }
     static async renderEditCourse(req, res) {
         try {
