@@ -26,18 +26,7 @@ const ControllerStudent = require('./controllers/controllerStudent')
 const ControllerAdmin = require('./controllers/controllerAdmin')
 const ControllerHome = require('./controllers/controllerHome')
 //===================================
-const captchaUrl = '/captcha.jpg';
-const captchaMathUrl = '/captcha_math.jpg';
-const captchaSessionId = 'captcha';
-const captchaFieldName = 'captcha';
-const captcha = require('svg-captcha-express').create({
-    cookie: captchaSessionId
-});
-//===================================load custom font (optional)
-captcha.loadFont(path.join(__dirname, './fonts/Comismsh.ttf'));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.get(captchaUrl, captcha.image());
-app.get(captchaMathUrl, captcha.math());
+
 //====================================Midleware
 const home = function (req, res, next) {
     if (req.session.user) {
@@ -70,21 +59,13 @@ const admin = function (req, res, next) {
         res.redirect(`/login?error=${error}`)
     }
 }
-const captchaCheck = function (req, res, next) {
-    let valid = captcha.check(req, req.body[captchaFieldName])
-    if (valid) {
-        next()
-    } else {
-        const error = `Incorret Captcha, try again..`
-        res.redirect(`/login?error=${error}`)
-    }
-}
+
 //=======================================root home app
 app.get('/', home, ControllerHome.renderHome)
 app.get('/register', home, ControllerHome.renderRegister)
 app.post('/register', home, ControllerHome.handleRegister)
 app.get('/login', home, ControllerHome.renderLogin)
-app.post('/login', home, captchaCheck, ControllerHome.handleLogin)
+app.post('/login', home, ControllerHome.handleLogin)
 app.get('/logout', ControllerHome.handleLogout)
 //==========================================root student
 app.get('/student', student, ControllerStudent.renderHome)
