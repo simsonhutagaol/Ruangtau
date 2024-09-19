@@ -21,9 +21,9 @@ app.use(
   })
 );
 //===================================
-const ControllerStudent = require("../controllers/controllerStudent");
-const ControllerAdmin = require("../controllers/controllerAdmin");
-const ControllerHome = require("../controllers/controllerHome");
+const ControllerStudent = require("./controllers/controllerStudent");
+const ControllerAdmin = require("./controllers/controllerAdmin");
+const ControllerHome = require("./controllers/controllerHome");
 //===================================
 
 //====================================Midleware
