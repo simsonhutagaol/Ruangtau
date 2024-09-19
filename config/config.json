@@ -1,9 +1,10 @@
 {
   "development": {
-    "username": "simsonhutagaol",
-    "password": "hutagaol123",
-    "database": "Ruang_DB",
-    "host": "127.0.0.1",
+    "username": "postgres.oxgmtxnzbebbfkbsnycy",
+    "password": "hutagaol123.",
+    "database": "postgres",
+    "host": "aws-0-ap-southeast-1.pooler.supabase.com",
+    "port": 6543,
     "dialect": "postgres"
   },
   "test": {

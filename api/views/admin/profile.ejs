@@ -4,7 +4,7 @@
     <div class="flex items-center gap-4">
       <div>
         <h3 class="text-lg font-medium text-white">
-          <%= user.Profile.title %>
+          <%= user?.Profile?.title %>
         </h3>
 
         <div class="flow-root">
@@ -30,7 +30,7 @@
         <a href="#" class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600">
           <strong class="font-medium text-white">Date of Birth</strong>
           <p class="mt-1 text-xs font-medium text-gray-300">
-            <%= formatDOB(user.Profile.dateOfBirth) %>
+            <%= formatDOB(user?.Profile?.dateOfBirth) %>
           </p>
         </a>
       </li>
@@ -39,7 +39,7 @@
         <a href="#" class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600">
           <strong class="font-medium text-white">Phone</strong>
           <p class="mt-1 text-xs font-medium text-gray-300">
-            <%= user.Profile.phone %>
+            <%= user?.Profile?.phone %>
           </p>
         </a>
       </li>
@@ -47,7 +47,7 @@
         <a href="#" class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600">
           <strong class="font-medium text-white">Gender</strong>
           <p class="mt-1 text-xs font-medium text-gray-300">
-            <%= user.Profile.gender %>
+            <%= user?.Profile?.gender %>
           </p>
         </a>
       </li>
@@ -55,7 +55,7 @@
         <a href="#" class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600">
           <strong class="font-medium text-white">Background</strong>
           <p class="mt-1 text-xs font-medium text-gray-300">
-            <%= user.Profile.background %>
+            <%= user?.Profile?.background %>
           </p>
         </a>
       </li>
@@ -63,7 +63,7 @@
         <a href="#" class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600">
           <strong class="font-medium text-white">Email</strong>
           <p class="mt-1 text-xs font-medium text-gray-300">
-            <%= user.email %>
+            <%= user?.email %>
           </p>
         </a>
       </li>
@@ -71,7 +71,7 @@
         <a href="#" class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600">
           <strong class="font-medium text-white">Role</strong>
           <p class="mt-1 text-xs font-medium text-gray-300">
-            <%= user.role %>
+            <%= user?.role %>
           </p>
         </a>
       </li>
